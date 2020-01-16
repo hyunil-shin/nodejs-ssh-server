@@ -9,6 +9,7 @@ var utils = ssh2.utils;
 var allowedUser = Buffer.from('foo');
 var allowedPassword = Buffer.from('bar');
 var allowedPubKey = "foo.bar"
+var sshPort = process.argv[2]
 
 new ssh2.Server({
   hostKeys: [fs.readFileSync('host.key')]
@@ -38,6 +39,6 @@ new ssh2.Server({
   }).on('end', function() {
     console.log('Client disconnected');
   });
-}).listen(7790, '0.0.0.0', function() {
+}).listen(sshPort, '0.0.0.0', function() {
   console.log('Listening on port ' + this.address().port);
 });
