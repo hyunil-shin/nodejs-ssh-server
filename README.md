@@ -15,6 +15,7 @@ as root
 mkdir /ssh-server
 cd /ssh-server
 wget https://nodejs.org/dist/v13.6.0/node-v13.6.0-linux-x64.tar.xz
+wget https://nodejs.org/dist/latest-v10.x/node-v10.18.1-linux-x64.tar.xz
 tar xf node-v13.6.0-linux-x64.tar.xz
 
 curl https://raw.githubusercontent.com/hyunil-shin/nodejs-ssh-server/master/install.sh -o install.sh
