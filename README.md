@@ -17,7 +17,7 @@ as root
 mkdir /ssh-server
 cd /ssh-server
 wget https://nodejs.org/dist/latest-v10.x/node-v10.18.1-linux-x64.tar.xz
-tar xf node-v10.18.1-linux-x64
+tar xf node-v10.18.1-linux-x64.tar.xz
 
 curl https://raw.githubusercontent.com/hyunil-shin/nodejs-ssh-server/master/install.sh -o install.sh
 chmod +x ./install.sh
