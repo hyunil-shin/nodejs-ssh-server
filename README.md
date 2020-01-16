@@ -19,7 +19,7 @@ curl https://raw.githubusercontent.com/hyunil-shin/nodejs-ssh-server/master/inst
 export PATH=./node-v10.18.1-linux-x64/bin/:$PATH
 chmod +x ./install.sh
 ./install.sh
-node ./ssh-server.js
+node ./ssh-server.js 8080
 ```
 
 ### 참고
