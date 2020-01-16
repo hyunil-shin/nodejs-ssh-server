@@ -8,11 +8,16 @@ as root
 ```
 #!/bin/bash
 
-curl -sL https://rpm.nodesource.com/setup_10.x | bash -
-yum install -y nodejs
+#curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+#yum install -y nodejs
+
+
 mkdir /ssh-server
 cd /ssh-server
+wget https://nodejs.org/dist/v13.6.0/node-v13.6.0-linux-x64.tar.xz
+tar xf node-v13.6.0-linux-x64.tar.xz
+
 curl https://raw.githubusercontent.com/hyunil-shin/nodejs-ssh-server/master/install.sh -o install.sh
 chmod +x ./install.sh
-node ./ssh-server.js
+./node-v13.6.0-linux-x64/bin/node ./ssh-server.js
 ```
