@@ -2,6 +2,8 @@
 
 https://github.com/mscdex/ssh2
 
+## 주의
+* authenticate 없이 로그인 가능
 
 ## how to use
 as root
