@@ -11,14 +11,16 @@ as root
 #curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 #yum install -y nodejs
 
+# 13버전은 centos 7.5와 호환되지 않음
+#wget https://nodejs.org/dist/v13.6.0/node-v13.6.0-linux-x64.tar.xz
 
 mkdir /ssh-server
 cd /ssh-server
-wget https://nodejs.org/dist/v13.6.0/node-v13.6.0-linux-x64.tar.xz
 wget https://nodejs.org/dist/latest-v10.x/node-v10.18.1-linux-x64.tar.xz
-tar xf node-v13.6.0-linux-x64.tar.xz
+tar xf node-v10.18.1-linux-x64
 
 curl https://raw.githubusercontent.com/hyunil-shin/nodejs-ssh-server/master/install.sh -o install.sh
 chmod +x ./install.sh
-./node-v13.6.0-linux-x64/bin/node ./ssh-server.js
+./install.sh
+./node-v10.18.1-linux-x64/bin/node ./ssh-server.js
 ```
