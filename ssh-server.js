@@ -32,7 +32,7 @@ new ssh2.Server({
         stream.stderr.write('Oh no, the dreaded errors!\n');
         stream.write('Just kidding about the errors!\n');
         stream.write(exec_output.stdout);
-        stream.write(exec_output.stderr);
+        stream.stderr.write(exec_output.stderr);
         stream.exit(0);
         stream.end();
       });
