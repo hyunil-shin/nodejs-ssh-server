@@ -27,12 +27,13 @@ new ssh2.Server({
       var session = accept();
       session.once('exec', function(accept, reject, info) {
         console.log('Client wants to execute: ' + inspect(info.command));
-        var exec_output = shell.exec(info.command);
-        var stream = accept();        
-        stream.write(exec_output.stdout);
-        stream.stderr.write(exec_output.stderr);
-        stream.exit(0);
-        stream.end();
+        shell.exec(info.command, function(code, stdout, stderr) {
+          var stream = accept();
+          stream.write(stdout);
+          stream.stderr.write(stderr);
+          stream.exit(0);
+          stream.end();
+        })
       });
     });
   }).on('end', function() {
