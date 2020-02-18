@@ -27,8 +27,8 @@ new ssh2.Server({
       var session = accept();
       session.once('exec', function(accept, reject, info) {
         console.log('Client wants to execute: ' + inspect(info.command));
-        shell.exec(info.command, function(code, stdout, stderr) {
-          var stream = accept();
+        var stream = accept();
+        shell.exec(info.command, function(code, stdout, stderr) {          
           stream.write(stdout);
           stream.stderr.write(stderr);
           stream.exit(0);
