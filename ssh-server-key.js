@@ -36,7 +36,10 @@ new ssh2.Server({
           return ctx.reject();
     }
   }else {
-    return ctx.reject();
+    // workaround
+    // - java ssh client의 host key verification 시 여기에 도달하는 것 같다.
+    // - ctx.reject() 로는 안되고 'publickey'를 추가하니 잘 된다.
+    return ctx.reject(["publickey"]);
   }
 
 
@@ -57,6 +60,9 @@ new ssh2.Server({
         })
       });
     });
+  }).on('error', function() {
+    // 에러 처리하지 않으면 프로세스가 죽는다.
+    console.log('error');
   }).on('end', function() {
     console.log('Client disconnected');
   });
